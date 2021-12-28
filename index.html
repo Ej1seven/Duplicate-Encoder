@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>Duplicate Encoder</title>
+  </head>
+  <body>
+    <div>
+      <div class="header">
+        <h1 class="title">Duplicate Encoder</h1>
+      </div>
+      <div class="body-container">
+        <div class="problem-set">
+          <div class="section-title-container">
+            <div class="nav-bar">
+              <div class="tab active problem-tab">
+                <h4 class="section-title">Problem Set</h4>
+              </div>
+              <div class="tab solution-tab border-left bg-orange">
+                <h4 class="section-title">Solution</h4>
+              </div>
+              <div class="empty-section bg-orange"></div>
+            </div>
+            <div class="text-container">
+              <div class="problem-text">
+                <p>
+                  The goal of this exercise is to convert a string to a new
+                  string where each character in the new string is "(" if that
+                  character appears only once in the original string, or ")" if
+                  that character appears more than once in the original string.
+                  Ignore capitalization when determining if a character is a
+                  duplicate.
+                </p>
+                <h4>Examples</h4>
+                "din" => "(((" <br />"recede" => "()()()" <br />"Success" =>
+                ")())())" <br />"(( @" => "))((" <br />
+                <h4>Notes</h4>
+                Assertion messages may be unclear about what they display in
+                some languages. If you read "...It Should encode XXX", the "XXX"
+                is the expected result, not the input!
+              </div>
+              <p class="solution-text hide">
+              <br/><span class=></span>  function duplicateEncode(word){
+              <br/><span class="indent"></span>  let count = 0;
+              <br/><span class="indent"></span>    const wordArray = Array.from(word)
+              <br/><span class="indent"></span>    let newArray = []
+              <br/><span class="indent"></span>      for(let x = 0; x < wordArray.length; x++){
+              <br/><span class="indent-2x"></span>        let count = 0;
+              <br/><span class="indent-2x"></span>        for(let y = 0; y < wordArray.length; y++){
+              <br/><span class="indent-3x"></span>          if(wordArray[x].toLowerCase() === <br/><span class="indent-3x">wordArray[y].toLowerCase()){</span>
+              <br/><span class="indent-3x"></span>            count++
+              <br/><span class="indent-2x"></span>          }
+              <br/><span class="indent"></span>        }
+              <br/><span class="indent">if(count > 1){</span>        
+              <br/><span class="indent-2x">newArray.push(")")</span>          
+              <br/><span class="indent-2x">} else {</span>        
+              <br/><span class="indent-3x"> newArray.push("(")</span>         
+              <br/><span class="indent-2x"> }</span>       
+              <br/><span class="indent">}</span>      
+              <br/><span class="indent">return newArray.toString().replace(/,/g,'');</span>    
+              <br/>  }
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="input-output-container">
+          <div class="input-container">
+            <div class="input-output-bar">
+              <div class="section-title-container">
+                <h4 class="section-title bg-orange">Input</h4>
+              </div>
+            </div>
+            <textarea class="bg-grey"></textarea>
+            <div class="button-wrapper"><button>Submit</button></div>
+          </div>
+          <div class="output-container">
+            <div class="input-output-bar">
+              <div class="section-title-container">
+                <h4 class="section-title bg-orange">Output</h4>
+              </div>
+            </div>
+            <div class="output-text"></div>
+          </div>
+        </div>
+      </div>
+      <div class="popup hide">
+        <div class="close-button-container">
+          <button class="close-button"><p>X</p></button>
+        </div>
+        <p class="popup-text">
+          Please make sure the textbox is not empty and your text only contains
+          letters
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
